@@ -2,13 +2,14 @@
   "required": true,
   "minVersion": "0.8",
   "package": "org.hp.buff_particle_remover.mixin",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_21",
   "refmap": "buff_particle_remover.refmap.json",
   "mixins": [
   ],
   "client": [
     "client.LivingEntityMixin",
-    "client.ClientWorldMixin"
+    "client.ClientWorldMixin",
+    "client.FireOverlayMixin"
   ],
   "injectors": {
     "defaultRequire": 1
