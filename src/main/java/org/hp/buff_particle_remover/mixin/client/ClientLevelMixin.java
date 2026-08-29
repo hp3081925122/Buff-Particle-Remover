@@ -12,7 +12,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(ClientLevel.class)
 public abstract class ClientLevelMixin {
     // 过滤普通的六参数粒子生成调用。
-    @Inject(method = "addParticle(Lnet/minecraft/core/particles/ParticleOptions;DDDDDD)V", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "addParticle(Lnet/minecraft/core/particles/ParticleOptions;DDDDDD)V", at = @At("HEAD"), cancellable = true, remap = false)
     private void buff_particle_remover$cancelParticle(ParticleOptions particleOptions, double x, double y, double z, double xd, double yd, double zd, CallbackInfo callbackInfo) {
         if (ParticleSuppressionState.isActive()) {
             callbackInfo.cancel();
@@ -20,7 +20,7 @@ public abstract class ClientLevelMixin {
     }
 
     // 过滤带粒子限制参数的生成调用。
-    @Inject(method = "addParticle(Lnet/minecraft/core/particles/ParticleOptions;ZDDDDDD)V", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "addParticle(Lnet/minecraft/core/particles/ParticleOptions;ZDDDDDD)V", at = @At("HEAD"), cancellable = true, remap = false)
     private void buff_particle_remover$cancelLimitedParticle(ParticleOptions particleOptions, boolean overrideLimiter, double x, double y, double z, double xd, double yd, double zd, CallbackInfo callbackInfo) {
         if (ParticleSuppressionState.isActive()) {
             callbackInfo.cancel();
@@ -28,7 +28,7 @@ public abstract class ClientLevelMixin {
     }
 
     // 过滤始终可见的六参数粒子生成调用。
-    @Inject(method = "addAlwaysVisibleParticle(Lnet/minecraft/core/particles/ParticleOptions;DDDDDD)V", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "addAlwaysVisibleParticle(Lnet/minecraft/core/particles/ParticleOptions;DDDDDD)V", at = @At("HEAD"), cancellable = true, remap = false)
     private void buff_particle_remover$cancelAlwaysVisibleParticle(ParticleOptions particleOptions, double x, double y, double z, double xd, double yd, double zd, CallbackInfo callbackInfo) {
         if (ParticleSuppressionState.isActive()) {
             callbackInfo.cancel();
@@ -36,7 +36,7 @@ public abstract class ClientLevelMixin {
     }
 
     // 过滤带粒子限制参数的始终可见粒子生成调用。
-    @Inject(method = "addAlwaysVisibleParticle(Lnet/minecraft/core/particles/ParticleOptions;ZDDDDDD)V", at = @At("HEAD"), cancellable = true)
+    @Inject(method = "addAlwaysVisibleParticle(Lnet/minecraft/core/particles/ParticleOptions;ZDDDDDD)V", at = @At("HEAD"), cancellable = true, remap = false)
     private void buff_particle_remover$cancelLimitedAlwaysVisibleParticle(ParticleOptions particleOptions, boolean overrideLimiter, double x, double y, double z, double xd, double yd, double zd, CallbackInfo callbackInfo) {
         if (ParticleSuppressionState.isActive()) {
             callbackInfo.cancel();

@@ -16,7 +16,7 @@ public abstract class LivingEntityMixin {
     private int buff_particle_remover$suppressionDepth;
 
     // 在 Buff tick 开始时只为当前客户端玩家的第一人称开启抑制范围。
-    @Inject(method = "tickEffects", at = @At("HEAD"))
+    @Inject(method = "tickEffects", at = @At("HEAD"), remap = false)
     private void buff_particle_remover$beginSuppression(CallbackInfo callbackInfo) {
         Minecraft minecraft = Minecraft.getInstance();
         if ((Object) this == minecraft.player && minecraft.options.getCameraType().isFirstPerson()) {
@@ -26,7 +26,7 @@ public abstract class LivingEntityMixin {
     }
 
     // 在 Buff tick 正常返回时关闭当前实体对应的抑制范围。
-    @Inject(method = "tickEffects", at = @At("RETURN"))
+    @Inject(method = "tickEffects", at = @At("RETURN"), remap = false)
     private void buff_particle_remover$endSuppression(CallbackInfo callbackInfo) {
         if (this.buff_particle_remover$suppressionDepth > 0) {
             ParticleSuppressionState.exit();
