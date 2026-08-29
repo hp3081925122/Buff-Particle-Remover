@@ -1,6 +1,7 @@
 {
   "pack": {
     "description": "buff_particle_remover resources",
-    "pack_format": 15
+    "min_format": [84, 0],
+    "max_format": [84, 0]
   }
 }
