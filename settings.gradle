@@ -1,15 +1,10 @@
 pluginManagement {
+    // 从 Gradle 插件门户和 Fabric Maven 解析 Fabric Loom。
     repositories {
         gradlePluginPortal()
-        maven {
-            name = 'MinecraftForge'
-            url = 'https://maven.minecraftforge.net/'
-        }
+        maven { url = 'https://maven.fabricmc.net/' }
     }
 }
 
-plugins {
-    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.7.0'
-}
-
-rootProject.name = 'buff-particle-remover'
+// 为当前 Minecraft 和加载器变体设置独立工程名。
+rootProject.name = 'buff-particle-remover-1.19.2-fabric'

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": [],
+  "license": "${mod_license}",
+  "environment": "client",
+  "entrypoints": {
+    "main": [
+      "org.hp.buff_particle_remover.Buff_particle_remover"
+    ]
+  },
+  "mixins": [
+    "buff_particle_remover.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "${minecraft_version}",
+    "java": ">=17"
+  }
+}
