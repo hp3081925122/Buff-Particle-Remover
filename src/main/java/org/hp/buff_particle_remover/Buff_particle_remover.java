@@ -2,7 +2,9 @@ package org.hp.buff_particle_remover;
 
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
+import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.common.Mod;
+import org.hp.buff_particle_remover.client.ClientConfig;
 
 // 这个入口只负责让 NeoForge 加载模组，具体的客户端渲染修改由客户端 Mixin 完成。
 @Mod(Buff_particle_remover.MODID)
@@ -12,5 +14,7 @@ public final class Buff_particle_remover {
 
     // 使用 NeoForge 注入的总线和容器完成最小模组初始化。
     public Buff_particle_remover(IEventBus modEventBus, ModContainer modContainer) {
+        // 注册客户端配置，使配置文件默认开启第一人称火焰移除。
+        modContainer.registerConfig(ModConfig.Type.CLIENT, ClientConfig.SPEC);
     }
 }
