@@ -8,7 +8,7 @@
   ],
   "client": [
     "client.LivingEntityMixin",
-    "client.ClientLevelMixin"
+    "client.ClientWorldMixin"
   ],
   "injectors": {
     "defaultRequire": 1
