@@ -1,6 +1,7 @@
 package org.hp.buff_particle_remover;
 
 import net.fabricmc.api.ModInitializer;
+import org.hp.buff_particle_remover.client.ClientConfig;
 
 // 这个入口只负责让 Fabric 加载客户端模组，具体的粒子过滤由客户端 Mixin 完成。
 public final class Buff_particle_remover implements ModInitializer {
@@ -10,5 +11,7 @@ public final class Buff_particle_remover implements ModInitializer {
     // Fabric 初始化时不注册服务端内容，保留空的通用入口以满足模组元数据要求。
     @Override
     public void onInitialize() {
+        // 在客户端初始化阶段创建配置文件，并保持默认开启第一人称火焰移除。
+        ClientConfig.isRemoveFirstPersonFireEnabled();
     }
 }
