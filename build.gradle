@@ -79,6 +79,7 @@ dependencies {
 }
 
 processResources {
+    filteringCharset = 'UTF-8'
     def replaceProperties = [
             minecraft_version      : minecraft_version,
             minecraft_version_range: minecraft_version_range,
